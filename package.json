@@ -1,7 +1,14 @@
 {
+  "name": "aws-rest-with-dynamodb",
+  "version": "1.0.0",
+  "description": "Serverless CRUD service exposing a REST HTTP interface for Geo Managenment",
+  "author": "",
+  "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.48.0",
+    "body-parser": "^1.19.0",
     "dynamodb-geo": "*",
+    "express": "^4.17.1",
     "uuid": "^3.0.1"
   }
 }

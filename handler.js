@@ -4,13 +4,14 @@ const app = express();
 const bodyParser = require('body-parser')
 const ddbGeo = require('dynamodb-geo');
 const AWS = require('aws-sdk');
+const serverless = require('serverless-http')
 
 // Set up AWS
-AWS.config.update({
-  accessKeyId: "YOUR_AWS_KEY_ID",
-  secretAccessKey: "YOUR_AWS_SECRET_ACCESS_KEY",
-  region: "YOUR_AWS_REGION"
-});
+// AWS.config.update({
+//     accessKeyId: "YOUR_AWS_KEY_ID",
+//     secretAccessKey: "YOUR_AWS_SECRET_ACCESS_KEY",
+//     region: "YOUR_AWS_REGION"
+//   });
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -32,25 +33,8 @@ app.use('/', (req, res) => {
     .catch(err => res.status(400).send(err));
 })
 
-
-
-const serverUnMomento = http.createServer((req, res) => {
-
-  // Querying 100km from Cordoba, España
-  var results = manager.queryRadius({
-    RadiusInMeter: 100000,
-    CenterPoint: {
-      latitude: 37.88,
-      longitude: -4.78
-    }
-  }).then((locations) => console.log(locations));
-
-
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
-});
-
 server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+module.exports.handler = serverless(app);

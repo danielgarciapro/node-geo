@@ -310,5 +310,12 @@
       "capital": "Vatican",
       "latitude": 41.9,
       "longitude": 12.45
+    },
+    {
+      "country": "España",
+      "capital": "Córdoba",
+      "place": "Mezquita-Catedral de Córdoba",
+      "latitude": 37.879126,
+      "longitude": -4.779430
     }
   ]

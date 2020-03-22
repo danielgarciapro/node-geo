@@ -81,19 +81,19 @@ ddb.createTable(createTableInput).promise()
     })
     // Perform a radius query
     .then(function () {
-        console.log('Querying by radius, looking 100km from Cambridge, UK.');
+        console.log('Querying by radius, looking 100km from Córdoba, Spain.');
         return capitalsManager.queryRadius({
             RadiusInMeter: 100000,
             CenterPoint: {
-                latitude: 52.225730,
-                longitude: 0.149593
+                latitude: 37.88,
+                longitude:-4.78
             }
         })
     })
     // Print the results, an array of DynamoDB.AttributeMaps
     .then(console.log)
     // Clean up
-    .then(function() { return ddb.deleteTable({ TableName: config.tableName }).promise() })
+    // .then(function() { return ddb.deleteTable({ TableName: config.tableName }).promise() })
     .catch(console.warn)
     .then(function () {
         process.exit(0);
